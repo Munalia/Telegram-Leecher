@@ -17,7 +17,7 @@ async def aria2_Download(link: str, num: int):
     # Create a command to run aria2p with the link
     command = [
         "aria2c",
-        "-x32",  # Increase the number of connections
+        "-x16",  # Increase the number of connections
         "--max-download-limit=10M",  # Limit download speed to 10 MB/s
         "--seed-time=0",
         "--summary-interval=1",
