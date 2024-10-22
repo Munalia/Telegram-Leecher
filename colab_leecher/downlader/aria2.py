@@ -8,6 +8,7 @@ from datetime import datetime
 from colab_leecher.utility.helper import sizeUnit, status_bar
 from colab_leecher.utility.variables import BOT, Aria2c, Paths, Messages, BotTimes
 
+
 async def aria2_Download(link: str, num: int):
     global BotTimes, Messages
     name_d = get_Aria2c_Name(link)
@@ -23,8 +24,6 @@ async def aria2_Download(link: str, num: int):
         "--max-tries=3",
         "--console-log-level=notice",
         "-d",
-        "--max-concurrent-downloads=99",
-        "--split=1M", # Minimum possible value. Default is 20M.
         Paths.down_path,
         link,
     ]
@@ -58,6 +57,7 @@ async def aria2_Download(link: str, num: int):
             logging.error(
                 f"aria2c download failed with return code {exit_code} for {link}.\nError: {error_output}"
             )
+
 
 def get_Aria2c_Name(link):
     if len(BOT.Options.custom_name) != 0:
