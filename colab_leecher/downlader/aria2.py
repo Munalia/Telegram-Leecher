@@ -17,13 +17,13 @@ async def aria2_Download(link: str, num: int):
     # Create a command to run aria2p with the link
     command = [
         "aria2c",
-        "-x16",  # Increase the number of connections
-        "--max-download-limit=10M",  # Limit download speed to 10 MB/s
+        "-x16",
         "--seed-time=0",
         "--summary-interval=1",
         "--max-tries=3",
         "--console-log-level=notice",
         "-d",
+        "--max-concurrent-downloads=99",
         "--split=1M", # Minimum possible value. Default is 20M.
         Paths.down_path,
         link,
